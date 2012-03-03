@@ -1,9 +1,8 @@
-<h1>Listing reports</h1>
+<h2>Reports</h2>
 
 <table>
   <tr>
-    <th>Business</th>
-    <th>Content</th>
+    <th>Name</th>
     <th></th>
     <th></th>
     <th></th>
@@ -12,7 +11,6 @@
 <% @reports.each do |report| %>
   <tr>
     <td><%= report.business_id %></td>
-    <td><%= report.content %></td>
     <td><%= link_to 'Show', report %></td>
     <td><%= link_to 'Edit', edit_report_path(report) %></td>
     <td><%= link_to 'Destroy', report, confirm: 'Are you sure?', method: :delete %></td>

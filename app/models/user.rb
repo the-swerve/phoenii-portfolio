@@ -36,7 +36,7 @@ class User < ActiveRecord::Base
   end
 
   def capitalize_name
-    self.name.capitalize!
+    self.name.split(" ").map(:capitalize!).join
   end
 
 end

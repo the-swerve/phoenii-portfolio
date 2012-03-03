@@ -1,10 +1,18 @@
 <% if User::ROLES.include? params[:role] %>
-  <% if params[:role] == "Investor" %>
-    <h2>Become an Investor</h2>
-  <% elsif params[:role] = "Entrepeneur" %> 
-    <h2>Start a Business</h2>
-  <% else what the fuck man end %>
-  <%= form_for(@user) do |f| %>
+  <% role = params[:role] %>
+<% elsif current_user && User::ROLES.include?(current_user.role) %>
+  <% role = current_user.role %>
+<% end %>
+
+<% if role %>
+
+  <% if role == "Investor" %>
+    <h2>Role: Investor</h2>
+  <% elsif role == "Entrepeneur" %>
+    <h2>Role: Entrepeneur</h2>
+  <% end %>
+
+  <%= form_for @user do |f| %>
     <%= render :partial => 'layouts/form_errors', :locals => {:object => @user} %>
 
     <div class="field">
@@ -34,8 +42,6 @@
       <%= f.submit %>
     </div>
   <% end %>
-
-<% else %>
 
   <p>You must have a role selected. <%= link_to "Return home.", root_url %></p>
 

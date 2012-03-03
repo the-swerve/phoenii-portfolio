@@ -16,6 +16,28 @@
     </div>
   <% end %>
 
+  <!-- Meta info -->
+  <div id="meta">
+    <% if current_user %>
+      <p>Logged in as <%= current_user.name %>. <%= link_to "Log out", logout_path %></p>
+    <% end %>
+  </div>
+
+  <!-- Nav -->
+  <ul id="nav">
+    <% if current_user && current_user.role == "Investor" %>
+      <li><%= link_to "Browse", businesses_url %></li>
+      <li><%= link_to "Reports", reports_url %></li>
+      <li>Help</li>
+    <% elsif current_user && current_user.role == "Entrepeneur" %>
+      <li>Reports</li>
+      <li>Stats</li>
+      <li>Page</li>
+      <li>Report</li>
+      <li>Help</li>
+    <% end %>
+  </ul>
+
 
 <%= yield %>
 
