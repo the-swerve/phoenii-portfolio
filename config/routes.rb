@@ -4,6 +4,7 @@ Phoenii::Application.routes.draw do
   get "sessions/new"
 
   get "login" => "sessions#new", :as => "login"
+  get "logout" => "sessions#destroy", :as => "logout"
   get "invest" => "investors#new", :as => "invest"
   get "start" => "businesses#new", :as => "start"
 
