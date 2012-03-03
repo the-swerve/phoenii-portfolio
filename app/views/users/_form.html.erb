@@ -6,12 +6,6 @@
 
 <% if role %>
 
-  <% if role == "Investor" %>
-    <h2>Role: Investor</h2>
-  <% elsif role == "Entrepeneur" %>
-    <h2>Role: Entrepeneur</h2>
-  <% end %>
-
   <%= form_for @user do |f| %>
     <%= render :partial => 'layouts/form_errors', :locals => {:object => @user} %>
 
@@ -36,12 +30,14 @@
       <%= f.text_area :bio %>
     </div>
 
-    <%= f.hidden_field :role, :value => params[:role] %>
+    <%= f.hidden_field :role, :value => role %>
 
     <div class="actions">
       <%= f.submit %>
     </div>
   <% end %>
+
+<% else %>
 
   <p>You must have a role selected. <%= link_to "Return home.", root_url %></p>
 

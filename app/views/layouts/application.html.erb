@@ -8,7 +8,7 @@
 </head>
 <body>
 
-	<h1>Phoenii</h1>
+  <h1><%= link_to "Phoenii", root_url %></h1>
   <!-- Notices -->
   <% flash.each do |key, msg| %>
     <div class="notice">
@@ -19,21 +19,29 @@
   <!-- Meta info -->
   <div id="meta">
     <% if current_user %>
-      <p>Logged in as <%= current_user.name %>. <%= link_to "Log out", logout_path %></p>
+      <p>Logged in as <%= current_user.name %> (<%= current_user.role %>). <%= link_to "Log out", logout_path %></p>
     <% end %>
   </div>
 
   <!-- Nav -->
   <ul id="nav">
     <% if current_user && current_user.role == "Investor" %>
-      <li><%= link_to "Browse", businesses_url %></li>
-      <li><%= link_to "Reports", reports_url %></li>
+      <li><%= link_to "Browse", businesses_path %></li>
+      <li><%= link_to "Reports", reports_path %></li>
+      <li><%= link_to "Your Profile", current_user %></li>
       <li>Help</li>
     <% elsif current_user && current_user.role == "Entrepeneur" %>
-      <li>Reports</li>
-      <li>Stats</li>
-      <li>Page</li>
-      <li>Report</li>
+      <li><%= link_to "Reports", reports_path %></li>
+      <% if current_user.business %>
+        <li><%= link_to "Stats", business_investments_path(current_user.business) %></li>
+        <li><%= link_to "Page", user_business_page_path(current_user) %></li>
+      <% end %>
+      <li>
+      <% if current_user.business %>
+        <%= link_to "Your Business", user_business_path(current_user) %></li>
+      <% else %>
+        <%= link_to "Start a Business", new_user_business_path(current_user) %></li>
+      <% end %>
       <li>Help</li>
     <% end %>
   </ul>

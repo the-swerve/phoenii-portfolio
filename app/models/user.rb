@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   
   ## Associations
   has_many :investments
+  has_one :business
 
   ## Validations
   validates :role,
@@ -36,7 +37,7 @@ class User < ActiveRecord::Base
   end
 
   def capitalize_name
-    self.name.split(" ").map(:capitalize!).join
+    self.name = self.name.split(" ").map(&:capitalize).join(" ")
   end
 
 end

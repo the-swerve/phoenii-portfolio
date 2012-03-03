@@ -12,15 +12,19 @@ Phoenii::Application.routes.draw do
 
   resources :reports
 
-  resources :pages
+  resources :businesses do
+    resource :page
+    resources :investments
+  end
 
-  resources :businesses
 
-  resources :entrepeneurs
-
-  resources :investments
-
-  resources :investors
+  resources :users do
+    resource :business do
+      resource :page
+      resources :investments
+    end
+    resources :investments
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

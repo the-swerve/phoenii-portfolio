@@ -13,7 +13,13 @@ class BusinessesController < ApplicationController
   # GET /businesses/1
   # GET /businesses/1.json
   def show
-    @business = Business.find(params[:id])
+    if params[:id]
+      @business = Business.find(params[:id])
+    elsif params[:user_id]
+      @business = User.find(params[:user_id]).business
+    else
+      redirect_to root_url, :redirect => "Invalid business ID"
+    end
 
     respond_to do |format|
       format.html # show.html.erb
@@ -25,6 +31,7 @@ class BusinessesController < ApplicationController
   # GET /businesses/new.json
   def new
     @business = Business.new
+    @business.build_page
 
     respond_to do |format|
       format.html # new.html.erb
@@ -41,6 +48,7 @@ class BusinessesController < ApplicationController
   # POST /businesses.json
   def create
     @business = Business.new(params[:business])
+    @business.user_id = current_user.id if current_user
 
     respond_to do |format|
       if @business.save

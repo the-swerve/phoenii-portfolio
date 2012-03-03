@@ -1,9 +1,8 @@
-<h1>Listing investments</h1>
+<h2>Investments</h2>
 
 <table>
   <tr>
     <th>Investor</th>
-    <th>Business</th>
     <th>Amount</th>
     <th></th>
     <th></th>
@@ -13,10 +12,9 @@
 <% @investments.each do |investment| %>
   <tr>
     <td><%= investment.investor_id %></td>
-    <td><%= investment.business_id %></td>
     <td><%= investment.amount %></td>
     <td><%= link_to 'Show', investment %></td>
-    <td><%= link_to 'Edit', edit_investment_path(investment) %></td>
+    <td><%= link_to 'Edit', edit_user_investment_path(current_user,investment) %></td>
     <td><%= link_to 'Destroy', investment, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
@@ -24,4 +22,4 @@
 
 <br />
 
-<%= link_to 'New Investment', new_investment_path %>
+<%= link_to 'New Investment', new_user_investment_path(current_user) %>

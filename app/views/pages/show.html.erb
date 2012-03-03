@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Content:</b>
+  <b>HTML Content:</b>
   <%= @page.content %>
 </p>
 
@@ -11,5 +11,5 @@
 </p>
 
 
-<%= link_to 'Edit', edit_page_path(@page) %> |
-<%= link_to 'Back', pages_path %>
+<%= link_to 'Edit', edit_user_business_page_path(current_user) %> |
+<%= link_to 'Back', user_path(current_user) %>

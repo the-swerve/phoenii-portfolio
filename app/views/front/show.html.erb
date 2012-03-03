@@ -2,6 +2,7 @@
 <p>More marketing copy yay</p>
 <p>Look fancy graphix.</p>
 
+<% unless current_user %>
 <h2>Login</h2>
 <div id="login">
   <%= form_tag sessions_path do %>
@@ -22,3 +23,4 @@
 <h2>Entrepeneurs</h2>
 <p>Blah blah blah start your dream thing kewl.</p>
 <%= link_to "Become an Entrepeneur", new_user_path(:role =>'Entrepeneur') %>
+<% end %>

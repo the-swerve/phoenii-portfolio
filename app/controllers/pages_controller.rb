@@ -13,7 +13,11 @@ class PagesController < ApplicationController
   # GET /pages/1
   # GET /pages/1.json
   def show
-    @page = Page.find(params[:id])
+    if params[:id]
+      @page = Page.find(params[:id])
+    elsif params[:user_id]
+      @page = User.find(params[:user_id]).business.page
+    end
 
     respond_to do |format|
       format.html # show.html.erb

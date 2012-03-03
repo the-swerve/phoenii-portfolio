@@ -1,24 +1,23 @@
 <%= form_for(@business) do |f| %>
-  <% if @business.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@business.errors.count, "error") %> prohibited this business from being saved:</h2>
 
-      <ul>
-      <% @business.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= render :partial => 'layouts/form_errors', :locals => {:object => @business} %>
 
   <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :desc %><br />
-    <%= f.text_field :desc %>
+    <%= f.label "Paragraph Pitch" %><br />
+    <%= f.text_area :desc %>
   </div>
+
+  <%= f.fields_for :page do |p| %>
+    <div class="field">
+      <%= p.label "Your Page (in html)" %><br />
+      <%= p.text_area :content %>
+    </div>
+  <% end %>
+
   <div class="actions">
     <%= f.submit %>
   </div>

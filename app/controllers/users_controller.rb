@@ -43,13 +43,10 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-    @user = User.new(params[:user])
-    if @user.save
-      flash[:notice] = "Welcome to Phoenii."
-    end
+    @user = User.new params[:user]
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: 'user was successfully created.' }
+        format.html { redirect_to root_url, notice: 'User was successfully created. Please log in.' }
         format.json { render json: @user, status: :created, location: @user }
       else
         format.html { redirect_to new_user_url(:role => params[:user][:role]), notice: "Invalid user"}
