@@ -1,0 +1,25 @@
+<h4>Business Rises Again</h4> 
+<p>More marketing copy yay</p>
+<p>Look fancy graphix.</p>
+
+<h2>Login</h2>
+<div id="login">
+  <%= form_tag sessions_path do %>
+    <%= label_tag :email %><br />
+    <%= text_field_tag :email, params[:email] %><br />
+
+    <%= label_tag :password %><br />
+    <%= password_field_tag :password %><br />
+
+    <%= submit_tag "Login" %>
+<% end %>
+</div>
+
+<h2>Investors</h2>
+<p>Blah blah blah investing kewl.</p>
+<%= link_to "Become an Investor", new_user_path %>
+
+<h2>Entrepeneurs</h2>
+<p>Blah blah blah start your dream thing kewl.</p>
+<%= link_to "Become an Entrepeneur", new_user_path %>
+

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  investor_id: 1
+  business_id: 1
+  amount: 1
+
+two:
+  investor_id: 1
+  business_id: 1
+  amount: 1

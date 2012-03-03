@@ -1,0 +1,25 @@
+<h1>Listing entrepeneurs</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Bio</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @entrepeneurs.each do |entrepeneur| %>
+  <tr>
+    <td><%= entrepeneur.name %></td>
+    <td><%= entrepeneur.bio %></td>
+    <td><%= link_to 'Show', entrepeneur %></td>
+    <td><%= link_to 'Edit', edit_entrepeneur_path(entrepeneur) %></td>
+    <td><%= link_to 'Destroy', entrepeneur, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Entrepeneur', new_entrepeneur_path %>
