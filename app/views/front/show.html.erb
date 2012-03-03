@@ -17,9 +17,8 @@
 
 <h2>Investors</h2>
 <p>Blah blah blah investing kewl.</p>
-<%= link_to "Become an Investor", new_user_path %>
+<%= link_to "Become an Investor", new_user_path(:role =>'Investor') %>
 
 <h2>Entrepeneurs</h2>
 <p>Blah blah blah start your dream thing kewl.</p>
-<%= link_to "Become an Entrepeneur", new_user_path %>
-
+<%= link_to "Become an Entrepeneur", new_user_path(:role =>'Entrepeneur') %>

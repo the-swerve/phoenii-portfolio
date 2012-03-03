@@ -9,6 +9,13 @@
 <body>
 
 	<h1>Phoenii</h1>
+  <!-- Notices -->
+  <% flash.each do |key, msg| %>
+    <div class="notice">
+      <p class="message"> <strong><%= msg %> </strong> </p>
+    </div>
+  <% end %>
+
 
 <%= yield %>
 
