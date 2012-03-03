@@ -28,7 +28,7 @@ class User < ActiveRecord::Base
   before_validation :defaults, :on => :create
   before_save :capitalize_name
 
-  attr_accessible :password, :password_confirmation
+  attr_accessible :password, :password_confirmation, :email, :bio, :role, :name
 
   private
 

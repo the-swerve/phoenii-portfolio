@@ -47,7 +47,15 @@ class UsersController < ApplicationController
     if @user.save
       flash[:notice] = "Welcome to Phoenii."
     end
-    respond_with @user, :redirect_to => root_url
+    respond_to do |format|
+      if @user.save
+        format.html { redirect_to @user, notice: 'user was successfully created.' }
+        format.json { render json: @user, status: :created, location: @user }
+      else
+        format.html { redirect_to new_user_url(:role => params[:user][:role]), notice: "Invalid user"}
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   # PUT /users/1
@@ -64,7 +72,7 @@ class UsersController < ApplicationController
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
-  enls render new with parametera
+  end
 
   # DELETE /users/1
   # DELETE /users/1.json
