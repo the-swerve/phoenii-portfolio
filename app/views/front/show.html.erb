@@ -1,26 +1,35 @@
-<h4>Business Rises Again</h4> 
-<p>More marketing copy yay</p>
-<p>Look fancy graphix.</p>
 
 <% unless current_user %>
-<h2>Login</h2>
-<div id="login">
-  <%= form_tag sessions_path do %>
-    <%= label_tag :email %><br />
-    <%= text_field_tag :email, params[:email] %><br />
 
-    <%= label_tag :password %><br />
-    <%= password_field_tag :password %><br />
+  <div id="vertDiv"></div>
+	
+	<div id="membership">
+		<div id="login">
+			<div class="button"><a href="#login" id="loginOpen">Login</a></div><br />
+      <div id="loginBox">
+        <%= form_tag sessions_path do %>
+          <div class="input-bg" id="inputEmail-bg">
+            <input type="text" class="textInput" name="email" maxlength="50" title="Email" placeholder="Email" /><br />
+          </div>
+          
+          <div class="input-bg" id="inputEmail-bg">
+            <input type="password" class="textInput" name="password" maxlength="50" title="Password" placeholder="Password" /><br />
+          </div>
+				<input name="commit" id="loginButton" type="submit" value="Login" />
+        <% end %>
+      </div>
+		</div>
 
-    <%= submit_tag "Login" %>
-<% end %>
-</div>
+    <div id="apply">
+      <div class="button">Apply</div>
+      <div id="applyChoose">
+        <%= link_to "Investor", new_user_path(:role => "Investor"), :id => "applyInvestor" %>
+        <br />
+        <%= link_to "Entrepreneur", new_user_path(:role => "Entrepreneur"), :id => "applyBusiness" %>
+        <br />
+      </div>
+    </div>
 
-<h2>Investors</h2>
-<p>Blah blah blah investing kewl.</p>
-<%= link_to "Become an Investor", new_user_path(:role =>'Investor') %>
+  </div>
 
-<h2>Entrepeneurs</h2>
-<p>Blah blah blah start your dream thing kewl.</p>
-<%= link_to "Become an Entrepeneur", new_user_path(:role =>'Entrepeneur') %>
 <% end %>

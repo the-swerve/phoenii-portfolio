@@ -2,7 +2,8 @@ class InvestmentsController < ApplicationController
   # GET /investments
   # GET /investments.json
   def index
-    @investments = Investment.all
+    @user = current_user
+    @investments = @user.investments
 
     respond_to do |format|
       format.html # index.html.erb
@@ -24,7 +25,8 @@ class InvestmentsController < ApplicationController
   # GET /investments/new
   # GET /investments/new.json
   def new
-    @investment = Investment.new
+    @user = current_user
+    @investment = @user.investments.build
 
     respond_to do |format|
       format.html # new.html.erb

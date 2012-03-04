@@ -2,13 +2,25 @@
 <html>
 <head>
   <title>Phoenii | Business rises again.</title>
-  <%= stylesheet_link_tag    "application" %>
+  <%= stylesheet_link_tag    "style" %>
+	<link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700,700italic,400italic' rel='stylesheet' type='text/css' /> 
   <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "jquery" %>
+  <%= javascript_include_tag "loginAnim.js" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-  <h1><%= link_to "Phoenii", root_url %></h1>
+<div id="container"> 
+
+<div id="intro">
+  <h1><%= link_to "PHOENII", root_url %></h1>
+	<div id="call">
+		<h2>Business rises and falls.</h2>
+		<h3>Not of its own volition, but by the action of its agents.</h3>
+	</div>
+</div>
+
   <!-- Notices -->
   <% flash.each do |key, msg| %>
     <div class="notice">
@@ -27,7 +39,7 @@
   <ul id="nav">
     <% if current_user && current_user.role == "Investor" %>
       <li><%= link_to "Browse", businesses_path %></li>
-      <li><%= link_to "Reports", user_reports_path(current_user) %></li>
+      <li><%= link_to "Investments", user_investments_path(current_user) %></li>
       <li><%= link_to "Your Profile", current_user %></li>
       <li>Help</li>
     <% elsif current_user && current_user.role == "Entrepeneur" %>
@@ -48,6 +60,8 @@
 
 
 <%= yield %>
+
+</div>
 
 </body>
 </html>
