@@ -198,7 +198,7 @@ div#loginBox {
 
 .input-bg {
 	width: 275px;
-	/*background: url(img/field-bg.png) no-repeat; */
+	background: url(img/field-bg.png) no-repeat;
 	position: relative;
 	padding-left: 0px;
 	margin-bottom: 20px;
