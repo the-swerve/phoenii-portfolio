@@ -2,6 +2,10 @@ class BusinessesController < ApplicationController
   # GET /businesses
   # GET /businesses.json
   def index
+    if current_user.business
+      redirect_to root_url
+      return
+    end
     @businesses = Business.all
 
     respond_to do |format|
