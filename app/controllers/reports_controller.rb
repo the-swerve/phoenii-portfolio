@@ -2,7 +2,8 @@ class ReportsController < ApplicationController
   # GET /reports
   # GET /reports.json
   def index
-    @reports = Report.all
+    @business = current_user.business
+    @reports = @business.reports
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,7 +14,8 @@ class ReportsController < ApplicationController
   # GET /reports/1
   # GET /reports/1.json
   def show
-    @report = Report.find(params[:id])
+    @business = current_user.business
+    @report = @business.reports.find params[:id]
 
     respond_to do |format|
       format.html # show.html.erb
@@ -24,7 +26,8 @@ class ReportsController < ApplicationController
   # GET /reports/new
   # GET /reports/new.json
   def new
-    @report = Report.new
+    @business = current_user.business
+    @report = @business.reports.build
 
     respond_to do |format|
       format.html # new.html.erb
@@ -40,11 +43,12 @@ class ReportsController < ApplicationController
   # POST /reports
   # POST /reports.json
   def create
-    @report = Report.new(params[:report])
+    @business = current_user.business
+    @report = @business.reports.build params[:report]
 
     respond_to do |format|
       if @report.save
-        format.html { redirect_to @report, notice: 'Report was successfully created.' }
+        format.html { redirect_to [@business, @report], notice: 'Report was successfully created.' }
         format.json { render json: @report, status: :created, location: @report }
       else
         format.html { render action: "new" }

@@ -10,11 +10,11 @@ Phoenii::Application.routes.draw do
 
   resources :sessions
 
-  resources :reports
 
   resources :businesses do
     resource :page
     resources :investments
+    resources :reports
   end
 
 
@@ -24,6 +24,7 @@ Phoenii::Application.routes.draw do
       resources :investments
     end
     resources :investments
+    resources :reports
   end
 
   # The priority is based upon order of creation:

@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+<h2>Business Report for <%= current_user.business.name %></h2>
 
 <p>
   <b>Business:</b>
@@ -11,5 +11,5 @@
 </p>
 
 
-<%= link_to 'Edit', edit_report_path(@report) %> |
-<%= link_to 'Back', reports_path %>
+<%= link_to 'Edit', edit_business_report_path(@business,@report) %> |
+<%= link_to 'Back', business_reports_path(@business) %>

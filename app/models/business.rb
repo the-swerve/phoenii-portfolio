@@ -3,6 +3,7 @@ class Business < ActiveRecord::Base
   ## Associations
   belongs_to :user
   has_one :page
+  has_many :reports
 
   ## Validations
   validates :name,
