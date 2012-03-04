@@ -29,6 +29,10 @@
       <%= f.label "Your bio" %><br />
       <%= f.text_area :bio %>
     </div>
+    <div class="field">
+      <%= f.file_field :photo %>
+    </div>
+
 
     <%= f.hidden_field :role, :value => role %>
 

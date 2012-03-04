@@ -13,13 +13,8 @@ class BusinessesController < ApplicationController
   # GET /businesses/1
   # GET /businesses/1.json
   def show
-    if params[:id]
-      @business = Business.find(params[:id])
-    elsif params[:user_id]
-      @business = User.find(params[:user_id]).business
-    else
-      redirect_to root_url, :redirect => "Invalid business ID"
-    end
+    @user = current_user
+    @business = @user.business
 
     respond_to do |format|
       format.html # show.html.erb

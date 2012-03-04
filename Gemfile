@@ -10,6 +10,9 @@ gem 'pg'
 # Authentication
 gem 'bcrypt-ruby'
 
+# Images
+gem 'paperclip'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do

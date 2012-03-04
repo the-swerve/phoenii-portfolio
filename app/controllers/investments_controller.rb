@@ -25,6 +25,7 @@ class InvestmentsController < ApplicationController
   # GET /investments/new
   # GET /investments/new.json
   def new
+    @business = Business.find params[:business_id]
     @user = current_user
     @investment = @user.investments.build
 
@@ -42,11 +43,12 @@ class InvestmentsController < ApplicationController
   # POST /investments
   # POST /investments.json
   def create
-    @investment = Investment.new(params[:investment])
+    @user = current_user
+    @investment = @user.investments.build params[:investment]
 
     respond_to do |format|
       if @investment.save
-        format.html { redirect_to @investment, notice: 'Investment was successfully created.' }
+        format.html { redirect_to user_investment_url(@user, @investment), notice: 'Investment was successfully created.' }
         format.json { render json: @investment, status: :created, location: @investment }
       else
         format.html { render action: "new" }

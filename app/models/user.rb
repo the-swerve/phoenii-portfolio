@@ -1,9 +1,10 @@
 class User < ActiveRecord::Base
 
   has_secure_password # This is a rails 3.1 feature. provides User#authenticate method
+  has_attached_file :photo, :styles => { :medium => "300x300>", :thumb => "100x100>" }
 
   ## Constants
-  ROLES = ["Investor", "Entrepeneur"]
+  ROLES = ["Investor", "Entrepreneur"]
   
   ## Associations
   has_many :investments
@@ -29,7 +30,7 @@ class User < ActiveRecord::Base
   before_validation :defaults, :on => :create
   before_save :capitalize_name
 
-  attr_accessible :password, :password_confirmation, :email, :bio, :role, :name
+  attr_accessible :password, :password_confirmation, :email, :bio, :role, :name, :photo
 
   private
 

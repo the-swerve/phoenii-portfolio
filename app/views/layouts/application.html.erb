@@ -42,7 +42,7 @@
       <li><%= link_to "Investments", user_investments_path(current_user) %></li>
       <li><%= link_to "Your Profile", current_user %></li>
       <li>Help</li>
-    <% elsif current_user && current_user.role == "Entrepeneur" %>
+    <% elsif current_user && current_user.role == "Entrepreneur" %>
       <% if current_user.business %>
         <li><%= link_to "Reports", business_reports_path(current_user.business) %></li>
         <li><%= link_to "Stats", business_investments_path(current_user.business) %></li>
