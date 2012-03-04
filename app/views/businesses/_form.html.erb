@@ -7,19 +7,21 @@
     <%= f.text_field :name %>
   </div>
   <div class="field">
+    <%= f.label "Goal Investment (in dollars)" %><br />
+    <%= f.text_field :goal_investment %>
+  </div>
+  <div class="field">
+    <%= f.label "Total Equity Offered (as a percentage)" %><br />
+    <%= f.text_field :equity_offered %>
+  </div>
+  <div class="field">
     <%= f.label "Paragraph Pitch" %><br />
     <%= f.text_area :desc %>
   </div>
   <div class="field">
+    <%= f.label "Your Business' Image" %>
     <%= f.file_field :photo %>
   </div>
-
-  <%= f.fields_for :page do |p| %>
-    <div class="field">
-      <%= p.label "Your Page (in html)" %><br />
-      <%= p.text_area :content %>
-    </div>
-  <% end %>
 
   <div class="actions">
     <%= f.submit %>

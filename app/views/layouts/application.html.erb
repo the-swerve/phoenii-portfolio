@@ -46,7 +46,7 @@
       <% if current_user.business %>
         <li><%= link_to "Reports", business_reports_path(current_user.business) %></li>
         <li><%= link_to "Stats", business_investments_path(current_user.business) %></li>
-        <li><%= link_to "Page", user_business_page_path(current_user) %></li>
+        <li>Page</li><!-- <%= link_to "Page", user_business_page_path(current_user) %></li> -->
       <% end %>
       <li>
       <% if current_user.business %>

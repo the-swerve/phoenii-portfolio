@@ -1,5 +1,13 @@
 <h2>Make an Investment Towards <%= @business.name %></h2>
 
+<p>
+<b>Goal:</b> <%= number_to_currency @business.goal_investment %></b><br />
+<b>Equity offered:</b> <%= @business.equity_offered %>%</b><br />
+<b>Equity given:</b> <%= @business.equity_given %>%</b><br />
+<b>Dollars per percentage of equity:</b> <%= number_to_currency @business.goal_investment / @business.equity_offered %>
+
+</p>
+
 <%= render 'form' %>
 
 <%= link_to 'Back', user_investments_path(current_user) %>

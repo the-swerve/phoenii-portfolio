@@ -1,4 +1,4 @@
-<h2>Businesses</h2>
+<h2>Browse Businesses</h2>
 
 <table>
   <tr>
@@ -9,12 +9,18 @@
     <th></th>
   </tr>
 
+
 <% @businesses.each do |business| %>
   <tr>
     <td><%= business.name %></td>
     <td><%= business.desc %></td>
     <td><%= link_to 'Details', business %></td>
-    <td><%= link_to 'Invest', new_business_investment_path(business) %></td>
+    <% inv = current_user.investments.find {|i| i.business == business} %>
+    <% if inv %>
+      <td><%= link_to "View Your Investment", business_investment_path(business,inv) %></td>
+    <% else %>
+      <td><%= link_to 'Invest', new_business_investment_path(business) %></td>
+    <% end %>
   </tr>
 <% end %>
 </table>

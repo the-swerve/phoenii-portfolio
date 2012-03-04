@@ -2,6 +2,22 @@
 <h2><%= @business.name %></h2>
 
 <p>
+  <b>Invested:</b> <%= number_to_currency(@business.invested_amount) %>
+</p>
+
+<p>
+  <b>Goal:</b> <%= number_to_currency(@business.goal_investment) %>
+</p>
+
+<p>
+<b>Total equity offered:</b> <%= @business.equity_offered %>%<br />
+</p>
+
+<p>
+<b>Equity given:</b> <%= @business.equity_given %>%<br />
+</p>
+
+<p>
   <b>Description:</b>
   <%= @business.desc %>
 </p>
@@ -13,5 +29,11 @@
 </p>
 
 
-<%= link_to 'Edit', edit_business_path(@business) %> |
-<%= link_to 'Back', businesses_path %>
+<ul>
+<% if current_user.business %>
+  <li><%= link_to 'Edit', edit_business_path(@business) %></li>
+<% elsif current_user.investments.map(&:business).include? @business %></li>
+<% else%>
+  <li><%= link_to 'Invest', new_business_investment_path(@business) %></li>
+<% end %>
+</ul>

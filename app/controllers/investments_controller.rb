@@ -3,7 +3,11 @@ class InvestmentsController < ApplicationController
   # GET /investments.json
   def index
     @user = current_user
-    @investments = @user.investments
+    if current_user.business
+      @investments = current_user.business.investments
+    else
+      @investments = @user.investments
+    end
 
     respond_to do |format|
       format.html # index.html.erb
@@ -14,8 +18,17 @@ class InvestmentsController < ApplicationController
   # GET /investments/1
   # GET /investments/1.json
   def show
-    @user = current_user
-    @investment = @user.investments.find params[:id]
+    # XXX not scoped
+    @investment = Investment.find params[:id]
+    @business = @investment.business
+    @user = @investment.user
+   #if params[:user_id]
+   #  @user = User.find params[:user_id]
+   #  @business = @investment.business
+   #elsif params[:business_id]
+   #  @business = User.find params[:user_id]
+   #  @user = @investment.user
+   #end
 
     respond_to do |format|
       format.html # show.html.erb
@@ -45,6 +58,7 @@ class InvestmentsController < ApplicationController
   # POST /investments.json
   def create
     @user = current_user
+    @business = Business.find params[:investment][:business_id]
     @investment = @user.investments.build params[:investment]
 
     respond_to do |format|

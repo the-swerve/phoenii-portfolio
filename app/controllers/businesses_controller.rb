@@ -19,6 +19,7 @@ class BusinessesController < ApplicationController
     else
       @business = Business.find params[:id]
     end
+    @business.update_invested
 
     respond_to do |format|
       format.html # show.html.erb

@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
       session[:role] = user.role
       redirect_to user, :notice => "Logged in."
     else
-      redirect_to login_path, :alert => "Invalid email or password."
+      redirect_to root_url, :alert => "Invalid email or password."
     end 
   end
 

@@ -1,20 +1,28 @@
-<p id="notice"><%= notice %></p>
+<h2>Investment Details</h2>
 
-<p>
-  <b>Investor:</b>
-  <%= @investment.user.name %>
-</p>
+<div id="investment_info">
+  <p id="show_investor">
+    <b>Investor:</b>
+    <%= @user.name %>
+  </p>
 
-<p>
-  <b>Business:</b>
-  <%= @investment.business.name %>
-</p>
+  <p id="show_business">
+    <b>Business:</b>
+    <%= link_to @investment.business.name, business_path(@investment.business) %>
+  </p>
 
-<p>
-  <b>Amount:</b>
-  <%= @investment.amount %>
-</p>
+  <p id="show_amount">
+    <b>Amount:</b>
+    <%= number_to_currency @investment.amount %>
+  </p>
 
+  <p id="show_equity">
+    <b>Percentage Equity:</b>
+    <%= @investment.equity %>%
+  </p>
 
-<%= link_to 'Edit', edit_user_investment_path(@user,@investment) %> |
-<%= link_to 'Back', user_investments_path(@user) %>
+  <p id="show_created">
+    <b>Created:</b>
+    <%= @investment.created_at.strftime('%b %e, %Y') %>
+  </p>
+</div>

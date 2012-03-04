@@ -1,7 +1,7 @@
 <% if current_user && current_user.role == "Investor" || params[:role] == "Investor" %>
   <h2>Become an Investor</h2>
-<% elsif current_user && current_user.role == "Entrepeneur" || params[:role] == "Entrepeneur" %>
-  <h2>Become an Entrepeneur</h2>
+<% elsif current_user && current_user.role == "Entrepreneur" || params[:role] == "Entrepreneur" %>
+  <h2>Become an Entrepreneur</h2>
 <% end %>
 <%= render 'form' %>
 

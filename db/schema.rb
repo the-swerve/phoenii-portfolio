@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120304045947) do
+ActiveRecord::Schema.define(:version => 20120304090805) do
 
   create_table "businesses", :force => true do |t|
     t.string   "name"
@@ -23,6 +23,9 @@ ActiveRecord::Schema.define(:version => 20120304045947) do
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
+    t.float    "goal_investment"
+    t.float    "invested_amount"
+    t.float    "equity_offered"
   end
 
   create_table "investments", :force => true do |t|

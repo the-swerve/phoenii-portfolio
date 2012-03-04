@@ -18,9 +18,10 @@
     <% if current_user.business %>
       <td><%= investment.user.name %></td>
     <% else %>
-      <td><%= investment.business.name %></td>
+      <td><%= link_to investment.business.name, business_path(investment.business) %></td>
     <% end %>
-    <td><%= investment.amount %></td>
+    <td><%= number_to_currency investment.amount %></td>
+    <td><%= link_to "Show", user_investment_path(current_user, investment) %></td>
   </tr>
 <% end %>
 </table>
