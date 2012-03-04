@@ -2,10 +2,8 @@ class ReportsController < ApplicationController
   # GET /reports
   # GET /reports.json
   def index
-    if current_user.business
-      @business = current_user.business
-      @reports = @business.reports
-    else
+    @business = current_user.business
+    @reports = @business.reports
 
     respond_to do |format|
       format.html # index.html.erb
@@ -86,4 +84,5 @@ class ReportsController < ApplicationController
       format.json { head :ok }
     end
   end
+
 end
