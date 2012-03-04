@@ -201,4 +201,45 @@ h3 {
   margin-top: 100px;
 }
 
+.card {
+  background-color: #343434;
+  border-radius: 5px;
+  word-wrap: break-word;
+  height: 270px;
+  padding: 10px;
+  width: 620px;
+  overflow: hidden;
+}
+
+.card_small {
+  background-color: #343434;
+  border-radius: 5px;
+  word-wrap: break-word;
+  height: 200px;
+  padding: 10px;
+  width: 320px;
+  overflow: hidden;
+}
+
+.card #data {
+  float: left;
+  padding: 10px;
+  width: 300px;
+}
+
+.card_small #data {
+  float: left;
+  padding: 10px;
+  width: 150px;
+}
+
+#photodiv {
+  float: left;
+}
+
+.card_data {
+  padding-bottom: 2em;
+  line-height: 1.2em;
+  font-family: NeutraBook; src: url('../fonts/Neutra2Text-Book.otf');
+}
 

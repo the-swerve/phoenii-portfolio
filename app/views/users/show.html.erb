@@ -1,38 +1,31 @@
 
-<% if @user == current_user %>
-  <h2>Your Card</h2>
-<% else %>
-  <h2><%= @user.name %>'s Card </h2>
-<% end %>
+<div class="card">
 
-<div id="user_card">
+  <h2><%= @user.name %></h2>
 
-<p id="name">
-  <b>Name:</b>
-  <%= @user.name %>
+<div id="photodiv">
+  <p id="photo">
+  <% if @user.photo.exists? %> <%= image_tag @user.photo.url(:medium) %>
+  <% else %> No photo. <% end %>
+  </p>
+</div>
+
+<div id="data">
+ 
+<p class="card_data" id="bio">
+  <%= @user.bio %>
 </p>
-
-<p id="role">
-  <b>Role:</b>
+<p class="card_data" id="role">
   <%= @user.role %>
 </p>
 
-<p id="email">
-  <b>Email:</b>
+<p class="card_data" id="email">
   <%= @user.email %>
 </p>
- 
-<p id="bio">
-  <b>Bio:</b>
-  <%= @user.bio %>
-</p>
-
-<p id="bio">
-<% if @user.photo.exists? %> <%= image_tag @user.photo.url(:medium) %>
-<% else %> No photo. <% end %>
-</p>
-
 <p id="edit"><%= link_to 'Edit', edit_user_path(@user) %></p>
+
+</div>
+
 
 </div>
 

@@ -1,16 +1,20 @@
 <% @businesses.each do |business| %>
-  <div class="business_card">
-    <h4><%= link_to business.name, business %></h4>
-    <div id="image">
+  <div class="card_small">
+    <h2><%= link_to business.name, business %></h2>
+
+    <div id="photodiv">
       <%= image_tag business.photo.url(:thumb) %>
     </div>
-    <p id="desc"><%= business.desc %></p>
+
+    <div id="data">
+    <p class="card_data" id="desc"><%= business.desc %></p>
     <% inv = current_user.investments.find {|i| i.business == business} %>
     <% if inv %>
-      <p id="view_investment"><%= link_to "View Your Investment", business_investment_path(business,inv) %></p>
+      <p class="card_data" id="view_investment"><%= link_to "View Your Investment", business_investment_path(business,inv) %></p>
     <% else %>
-      <p id="invest"><%= link_to 'Invest', new_business_investment_path(business) %></p>
+      <p class="card_data" id="invest"><%= link_to 'Invest', new_business_investment_path(business) %></p>
     <% end %>
+    </div>
   </div>
 <% end %>
 </table>
