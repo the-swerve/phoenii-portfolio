@@ -40,17 +40,17 @@
     <% if current_user && current_user.role == "Investor" %>
       <li><%= link_to "Browse", businesses_path %></li>
       <li><%= link_to "Investments", user_investments_path(current_user) %></li>
-      <li><%= link_to "Your Profile", current_user %></li>
+      <li><%= link_to "Card", current_user %></li>
       <li>Help</li>
     <% elsif current_user && current_user.role == "Entrepreneur" %>
       <% if current_user.business %>
         <li><%= link_to "Reports", business_reports_path(current_user.business) %></li>
         <li><%= link_to "Stats", business_investments_path(current_user.business) %></li>
-        <li>Page</li><!-- <%= link_to "Page", user_business_page_path(current_user) %></li> -->
+        <li><%= link_to "Page", business_page_path(current_user.business) %></li>
       <% end %>
       <li>
       <% if current_user.business %>
-        <%= link_to "Your Business", user_business_path(current_user) %></li>
+        <%= link_to "Card", user_business_path(current_user) %></li>
       <% else %>
         <%= link_to "Start a Business", new_user_business_path(current_user) %></li>
       <% end %>

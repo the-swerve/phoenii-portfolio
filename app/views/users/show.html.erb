@@ -1,27 +1,36 @@
-<p id="notice"><%= notice %></p>
 
-<p>
+<% if @user == current_user %>
+  <h2>Your Card</h2>
+<% else %>
+  <h2><%= @user.name %>'s Card </h2>
+<% end %>
+
+<div id="user_card">
+
+<p id="name">
   <b>Name:</b>
   <%= @user.name %>
 </p>
 
-<p>
+<p id="role">
   <b>Role:</b>
   <%= @user.role %>
 </p>
 
-<p>
+<p id="email">
   <b>Email:</b>
   <%= @user.email %>
 </p>
-
-<%= image_tag @user.photo.url(:medium) %>
-
-<p>
+ 
+<p id="bio">
   <b>Bio:</b>
   <%= @user.bio %>
 </p>
 
+<%= image_tag @user.photo.url(:medium) %>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+
+<p id="edit"><%= link_to 'Edit', edit_user_path(@user) %></p>
+
+</div>
+

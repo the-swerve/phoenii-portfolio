@@ -1,30 +1,20 @@
 <h2>Browse Businesses</h2>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Desc</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-
 <% @businesses.each do |business| %>
-  <tr>
-    <td><%= business.name %></td>
-    <td><%= business.desc %></td>
-    <td><%= link_to 'Details', business %></td>
+  <div class="business_card">
+    <h4><%= link_to business.name, business %></h4>
+    <div id="image">
+      <%= image_tag business.photo.url(:thumb) %>
+    </div>
+    <p id="desc"><%= business.desc %></p>
     <% inv = current_user.investments.find {|i| i.business == business} %>
     <% if inv %>
-      <td><%= link_to "View Your Investment", business_investment_path(business,inv) %></td>
+      <p id="view_investment"><%= link_to "View Your Investment", business_investment_path(business,inv) %></p>
     <% else %>
-      <td><%= link_to 'Invest', new_business_investment_path(business) %></td>
+      <p id="invest"><%= link_to 'Invest', new_business_investment_path(business) %></p>
     <% end %>
-  </tr>
+  </div>
 <% end %>
 </table>
 
 <br />
-
-<%= link_to 'New Business', new_business_path %>
