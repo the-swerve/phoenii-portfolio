@@ -4,9 +4,8 @@
   <title>Phoenii | Business rises again.</title>
   <%= stylesheet_link_tag    "style" %>
 	<link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700,700italic,400italic' rel='stylesheet' type='text/css' /> 
-  <%= javascript_include_tag "application" %>
   <%= javascript_include_tag "jquery" %>
-  <%= javascript_include_tag "loginAnim.js" %>
+  <%= javascript_include_tag "loginAnim" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -20,8 +19,6 @@
 		<h3>Not of its own volition, but by the action of its agents.</h3>
 	</div>
 </div>
-
-	<img src="img/vertDivider.png" id="vertDivider" alt="" />
 
   <!-- Notices -->
   <% flash.each do |key, msg| %>
