@@ -93,7 +93,7 @@ a:active { color: #FDFAF5; }
 /* header -----------------------------------------------*/
 
 body {
-	background: #2d2d2d;
+	background: #212121 top center no-repeat url('img/sunrise.png');
 	background-width: 100%;
 	color: #FDFAF5;
 	font-family: 'Droid Serif', serif;
@@ -110,7 +110,7 @@ body {
 }
 
 #intro {
-	margin-top: 80px;
+	margin-top: 40px;
 	margin-left: 27%;
 }
 
@@ -142,13 +142,12 @@ h3 {
 	margin-top: 50px;
 }
 
-#vertDiv {
-	background: url('img/vertDivider.png');
+#vertDivider {
 	position: absolute;
-	top: 150px; left: 50%;
-	width: 6px; height: 620px;
-	margin: 50px auto 50px auto;
+	top: 310px; left: 50%;
+	margin: 0px auto 0px -3px;
 	z-index: +5;
+	overflow: hidden;
 }
 
 .button {
@@ -157,29 +156,6 @@ h3 {
 	text-align: center;
 	margin: 50px auto 8px auto;
 	z-index: 4;
-}
-
-#login {
-	float: left;
-	width: 41%;
-	margin-left: 5%;
-}
-
-#loginOpen, #loginOpen.a, #loginOpen.a:hover {
-	color:#fff;
-	text-decoration:none;
-}
-
-div#loginBox {
-	display: none;
-	background-color:#d8780c;
-	-moz-border-radius: 15px;
-	border-radius: 15px;
-	margin-left:45px;
-	margin-right:0px;
-	width:275px;
-	height:0px;
-	overflow: none;
 }
 
 .textInput, .textInput:hover, .textInput:active, .textInput:focus {
@@ -192,11 +168,12 @@ div#loginBox {
 	padding-left: 15px;
 	padding-right: 5px;
 	font-family: 'Droid Serif', serif;
-	font-size: 100%;
-	color: #1D1D1D;
+	font-size: 14px;
+	color: #1d1d1d;
 }
 
 .input-bg {
+	
 	width: 275px;
 	background: url(img/field-bg.png) no-repeat;
 	position: relative;
@@ -204,20 +181,49 @@ div#loginBox {
 	margin-bottom: 20px;
 }
 
+div#loginBox {
+	background-color:#2d2d2d;
+	padding-bottom:100px;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+	margin-left:45px;
+	margin-right:0px;
+	width:275px;
+	height:0px;
+	overflow: none;
+}
+
+div#investorBox {
+	height:140px;
+	overflow:none;
+}
+
+div#entBox {
+	overflow:none;
+}
+
+div#investorOpen,div#entOpen {
+}
+
 #loginButton {
 	background: none;
 	border: none;
-	
 	font-family: serif;
 	color: #FFFFFF;
-	background: #EC9D45;
+	background: #df913b;
 	padding: 5px 15px;
 	-moz-border-radius: 5px;
 	border-radius: 5px;	
 }
 
 #loginButton:hover {
-	background: #eca555;
+	background: #EC9D45;
+}
+
+#login {
+	float: left;
+	width: 41%;
+	margin-left: 5%;
 }
 
 #apply {
@@ -226,9 +232,15 @@ div#loginBox {
 	margin-right: 5%;
 }
 
-#applyChoose {
+#applyBox {
+	background: #2d2d2d;
+	-moz-border-radius: 15px;
+	border-radius: 15px;	
+	margin-right:0px;
+	margin-left:45px;
+	width:200px;
+	height:160px;
 	font-family: 'NeutraBook', sans-serif;
-	margin-top: 50px;
 	font-size: 200%;
 }
 

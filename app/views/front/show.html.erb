@@ -1,19 +1,19 @@
 
 <% unless current_user %>
 
-  <div id="vertDiv"></div>
+	<img src="vertDivider.png" id="vertDivider" alt="" />
 	
 	<div id="membership">
 		<div id="login">
-			<div class="button"><a href="#login" id="loginOpen">Login</a></div><br />
+			<div class="button"><a href="#login-open" id="loginOpen">Login</a></div>
       <div id="loginBox">
         <%= form_tag sessions_path do %>
-          <div class="input-bg" id="inputEmail-bg">
-            <input type="text" class="textInput" name="email" maxlength="50" title="Email" placeholder="Email" /><br />
-          </div>
+        <div class="input-bg" id="inputEmail-bg">
+          <input type="text" class="textInput" name="email" maxlength="50" title="Email" placeholder="Email" /><br />
+        </div>
           
-          <div class="input-bg" id="inputEmail-bg">
-            <input type="password" class="textInput" name="password" maxlength="50" title="Password" placeholder="Password" /><br />
+        <div class="input-bg" id="inputEmail-bg">
+          <input type="password" class="textInput" name="password" maxlength="50" title="Password" placeholder="Password" /><br />
           </div>
 				<input name="commit" id="loginButton" type="submit" value="Login" />
         <% end %>
@@ -21,12 +21,29 @@
 		</div>
 
     <div id="apply">
-      <div class="button">Apply</div>
-      <div id="applyChoose">
-        <%= link_to "Investor", new_user_path(:role => "Investor"), :id => "applyInvestor" %>
-        <br />
-        <%= link_to "Entrepreneur", new_user_path(:role => "Entrepreneur"), :id => "applyBusiness" %>
-        <br />
+			<div class="button"><a href="#apply-open" id="applyOpen">Apply</a></div>
+			<div id="applyBox">
+				<a href="#investor-open" id="investorOpen">Investor</a><br />
+				<div id="investorBox">
+					<div class="input-bg">
+						<input type="text" class="textInput" name="investor-name" maxlength="30" title="Name" placeholder="Name" /></br>
+					</div>
+					<div class="input-bg">
+						<input type="text" class="textInput" name="investor-email" maxlength="30" title="Email" placeholder="Email" /></br>
+					</div>
+					<input name="regInvestor" id="loginButton" type="submit" value="Register" />
+				</div>
+				<br />
+				<a href="#entrepreneur-open" id="entOpen">Entrepreneur</a><br />
+				<div id="entBox">
+					<div class="input-bg">
+						<input type="text" class="textInput" name="ent-name" maxlength="30" title="Name" placeholder="Name" /></br>
+					</div>
+					<div class="input-bg">
+						<input type="text" class="textInput" name="ent-email" maxlength="30" title="Email" placeholder="Email" /></br>
+					</div>
+					<input name="regEnt" id="loginButton" type="submit" value="Register" />
+				</div>
       </div>
     </div>
 
