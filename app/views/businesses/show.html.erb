@@ -1,15 +1,12 @@
 
-<h2>Your Business</h2>
+<h2><%= @business.name %></h2>
 
 <p>
-  <b>Name:</b>
-  <%= @business.name %>
-</p>
-
-<p>
-  <b>Desc:</b>
+  <b>Description:</b>
   <%= @business.desc %>
 </p>
+
+<br />
 
 <p>
   <%= image_tag @user.photo.url(:medium) %>

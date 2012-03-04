@@ -2,7 +2,11 @@
 
 <table>
   <tr>
-    <th>Investor</th>
+    <% if current_user.business %>
+      <th>Investor</th>
+    <% else  %>
+      <th>Business</th>
+    <% end %>
     <th>Amount</th>
     <th></th>
     <th></th>
@@ -11,15 +15,14 @@
 
 <% @investments.each do |investment| %>
   <tr>
-    <td><%= investment.investor_id %></td>
+    <% if current_user.business %>
+      <td><%= investment.user.name %></td>
+    <% else %>
+      <td><%= investment.business.name %></td>
+    <% end %>
     <td><%= investment.amount %></td>
-    <td><%= link_to 'Show', investment %></td>
-    <td><%= link_to 'Edit', edit_user_investment_path(current_user,investment) %></td>
-    <td><%= link_to 'Destroy', investment, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
-
-<%= link_to 'New Investment', new_user_investment_path(current_user) %>

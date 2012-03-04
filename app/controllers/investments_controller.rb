@@ -14,7 +14,8 @@ class InvestmentsController < ApplicationController
   # GET /investments/1
   # GET /investments/1.json
   def show
-    @investment = Investment.find(params[:id])
+    @user = current_user
+    @investment = @user.investments.find params[:id]
 
     respond_to do |format|
       format.html # show.html.erb

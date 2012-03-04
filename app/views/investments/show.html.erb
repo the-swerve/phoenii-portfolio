@@ -2,12 +2,12 @@
 
 <p>
   <b>Investor:</b>
-  <%= @investment.user %>
+  <%= @investment.user.name %>
 </p>
 
 <p>
   <b>Business:</b>
-  <%= @investment.business %>
+  <%= @investment.business.name %>
 </p>
 
 <p>
@@ -16,5 +16,5 @@
 </p>
 
 
-<%= link_to 'Edit', edit_investment_path(@investment) %> |
-<%= link_to 'Back', investments_path %>
+<%= link_to 'Edit', edit_user_investment_path(@user,@investment) %> |
+<%= link_to 'Back', user_investments_path(@user) %>

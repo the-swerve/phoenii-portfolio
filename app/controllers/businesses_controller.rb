@@ -14,7 +14,11 @@ class BusinessesController < ApplicationController
   # GET /businesses/1.json
   def show
     @user = current_user
-    @business = @user.business
+    if @user.business
+      @business = @user.business
+    else
+      @business = Business.find params[:id]
+    end
 
     respond_to do |format|
       format.html # show.html.erb
