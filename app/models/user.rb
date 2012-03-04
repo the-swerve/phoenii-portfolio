@@ -11,14 +11,11 @@ class User < ActiveRecord::Base
   has_one :business
 
   ## Validations
+  validates :password,
+            :presence => {:message => " required."}
   validates :role,
             :presence => true,
             :inclusion => {:in => ROLES}
-  validates :password,
-            :presence => true,
-            :confirmation => true,
-            :length => {:minimum => 6}, 
-            :on => :create
   validates :email,
             :presence => true,
             :uniqueness => true,
@@ -38,7 +35,7 @@ class User < ActiveRecord::Base
   end
 
   def capitalize_name
-    self.name = self.name.split(" ").map(&:capitalize).join(" ")
+    self.name = self.name.split(' ').map(&:capitalize).join(' ')
   end
 
 end

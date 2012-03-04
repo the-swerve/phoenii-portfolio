@@ -7,7 +7,10 @@
 <% if role %>
 
   <%= form_for @user do |f| %>
-    <%= render :partial => 'layouts/form_errors', :locals => {:object => @user} %>
+    <p>Welcome to Phoenii. Please complete your registration process</p><br />
+    <% unless request.referrer == root_url %>
+      <%= render :partial => 'layouts/form_errors', :locals => {:object => @user} %>
+    <% end %>
 
     <div class="field">
       <%= f.label :email %><br />
@@ -30,6 +33,7 @@
       <%= f.text_area :bio %>
     </div>
     <div class="field">
+      <%= f.label "Your photo" %>: 
       <%= f.file_field :photo %>
     </div>
 

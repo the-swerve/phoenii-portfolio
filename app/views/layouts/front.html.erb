@@ -27,37 +27,6 @@
     </div>
   <% end %>
 
-  <!-- Meta info -->
-  <div id="meta">
-    <% if current_user %>
-      <p>Logged in as <%= current_user.name %> (<%= current_user.role %>). <%= link_to "Log out", logout_path %></p>
-    <% end %>
-  </div>
-
-  <!-- Nav -->
-  <ul id="nav">
-    <% if current_user && current_user.role == "Investor" %>
-      <li><%= link_to "Browse", businesses_path %></li>
-      <li><%= link_to "Investments", user_investments_path(current_user) %></li>
-      <li><%= link_to "Card", current_user %></li>
-      <li>Help</li>
-    <% elsif current_user && current_user.role == "Entrepreneur" %>
-      <% if current_user.business %>
-        <li><%= link_to "Reports", business_reports_path(current_user.business) %></li>
-        <li><%= link_to "Stats", business_investments_path(current_user.business) %></li>
-        <li><%= link_to "Page", business_page_path(current_user.business) %></li>
-      <% end %>
-      <li>
-      <% if current_user.business %>
-        <%= link_to "Card", user_business_path(current_user) %></li>
-      <% else %>
-        <%= link_to "Start a Business", new_user_business_path(current_user) %></li>
-      <% end %>
-      <li>Help</li>
-    <% end %>
-  </ul>
-
-
 <%= yield %>
 
 </div>

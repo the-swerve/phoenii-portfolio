@@ -46,10 +46,13 @@ class UsersController < ApplicationController
     @user = User.new params[:user]
     respond_to do |format|
       if @user.save
-        format.html { redirect_to root_url, notice: 'User was successfully created. Please log in.' }
+        cookies.permanent[:auth_token] = @user.id
+        session[:role] = @user.role
+        format.html { redirect_to @user, notice: 'New user creation successful.' }
         format.json { render json: @user, status: :created, location: @user }
       else
-        format.html { redirect_to new_user_url(:role => params[:user][:role]), notice: "Invalid user"}
+        params[:role] = params[:user][:role]
+        format.html { render :action => "new" } # new_user_url(:role => params[:user][:role]), notice: "Invalid user"}
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end

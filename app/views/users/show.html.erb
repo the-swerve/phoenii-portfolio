@@ -27,8 +27,10 @@
   <%= @user.bio %>
 </p>
 
-<%= image_tag @user.photo.url(:medium) %>
-
+<p id="bio">
+<% if @user.photo.exists? %> <%= image_tag @user.photo.url(:medium) %>
+<% else %> No photo. <% end %>
+</p>
 
 <p id="edit"><%= link_to 'Edit', edit_user_path(@user) %></p>
 
