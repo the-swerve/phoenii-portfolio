@@ -3,9 +3,9 @@
 <table>
   <tr>
     <% if current_user.business %>
-      <th>Investor</th>
+      <th class="startTable">Investor</th>
     <% else  %>
-      <th>Business</th>
+      <th class="startTable">Business</th>
     <% end %>
     <th>Amount</th>
     <th>Date</th>
@@ -16,9 +16,9 @@
 <% @investments.each do |investment| %>
   <tr>
     <% if current_user.business %>
-      <td><%= link_to investment.user.name, investment.user %></td>
+      <td class="startTable"><%= link_to investment.user.name, investment.user %></td>
     <% else %>
-      <td><%= link_to investment.business.name, business_path(investment.business) %></td>
+      <td class="startTable"><%= link_to investment.business.name, business_path(investment.business) %></td>
     <% end %>
     <td><%= number_to_currency investment.amount %></td>
     <td><%= investment.created_at.strftime('%b %e, %Y') %></td>

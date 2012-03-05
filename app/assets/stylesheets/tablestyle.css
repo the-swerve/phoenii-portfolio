@@ -1,0 +1,29 @@
+table {
+	background: #343434;
+	margin-left: 55px;
+}
+
+tr {
+	border-bottom: 1px solid #212121;
+}
+
+th {
+	font-family: 'NeutraBook', sans-serif;
+	font-size: 120%;
+	text-align: left;
+	padding: 8px 5px;
+	background: #404040;
+}
+
+td {
+	padding: 8px 5px;
+	width: 205px;
+}
+
+.startTable {
+	padding-left: 15px;
+}
+
+.endTable {
+	
+}

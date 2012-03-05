@@ -2,18 +2,19 @@
 <div class="card">
   <h2><%= @business.name %></h2>
   <div id="photodiv">
-    <%= image_tag @business.photo.url(:medium) %>
+  <% if @business.photo.exists? %> <%= image_tag @business.photo.url(:medium) %>
+  <% else %> <% end %>
   </div>
   <div class="data">
     <p class="card_data" id="blurb"><%= @business.desc %></p>
-    <div id="progress_bar"></div>
+    <script>placeStatusBar(<%= @business.goal_investment / @business.invested_amount  %>)</script><br />
     <p class="card_data" id="investments">
       <b>Goal:</b> <%= number_to_currency(@business.goal_investment) %> <br />
       <b>Invested:</b> <%= number_to_currency(@business.invested_amount) %>
     </p>
     <p class="card_data" id="equity">
     <b>Equity offered:</b> <%= @business.equity_offered %>% <br />
-      <b>Given:</b> <%= @business.equity_given %>%
+    <b>Given:</b> <%= @business.equity_given %>%
     </p>
     <% inv = current_user.investments.find {|i| i.business == @business} %>
     <% if inv %>

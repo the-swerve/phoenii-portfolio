@@ -6,7 +6,7 @@
 <div id="photodiv">
   <p id="photo">
   <% if @user.photo.exists? %> <%= image_tag @user.photo.url(:medium) %>
-  <% else %> No photo. <% end %>
+  <% else %> <% end %>
   </p>
 </div>
 

@@ -13,12 +13,7 @@ class PagesController < ApplicationController
   # GET /pages/1
   # GET /pages/1.json
   def show
-    if params[:id]
-      @page = Page.find(params[:id])
-    elsif params[:user_id]
-      @page = User.find(params[:user_id]).business.page
-    end
-
+  @page = Business.find(params[:business_id]).page
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @page }
@@ -38,7 +33,6 @@ class PagesController < ApplicationController
 
   # GET /pages/1/edit
   def edit
-    @page = Page.find(params[:id])
   end
 
   # POST /pages

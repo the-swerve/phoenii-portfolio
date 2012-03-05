@@ -209,16 +209,19 @@ h3 {
   padding: 10px;
   width: 620px;
   overflow: hidden;
+  float: left;
 }
 
 .card_small {
   background-color: #343434;
   border-radius: 5px;
   word-wrap: break-word;
-  height: 200px;
+  height: 220px;
   padding: 10px;
-  width: 320px;
+  width: 360px;
   overflow: hidden;
+  margin: 20px;
+  float: left;
 }
 
 .card #data {
@@ -227,10 +230,18 @@ h3 {
   width: 300px;
 }
 
+p.card_data #desc {
+  width: 80px;
+  height: 60px;
+  overflow: none;
+}
+
 .card_small #data {
   float: left;
   padding: 10px;
-  width: 150px;
+  width: 180px;
+  height:80px;
+  overflow:none;
 }
 
 #photodiv {
@@ -238,8 +249,18 @@ h3 {
 }
 
 .card_data {
-  padding-bottom: 2em;
+  padding-bottom: 1em;
   line-height: 1.2em;
   font-family: NeutraBook; src: url('../fonts/Neutra2Text-Book.otf');
 }
 
+.ui-progressbar {
+  background:#ddd;
+  font-size:0px; /* IMPORTANT */
+  height: 16px;
+  width: 180px;
+}
+
+.ui-progressbar-value {
+  background:#fab420;
+}

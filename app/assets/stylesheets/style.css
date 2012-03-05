@@ -252,4 +252,13 @@ div#investorOpen,div#entOpen {
 	padding: 5px;
 }
 
+.ui-progressbar {
+  background:#ddd;
+  font-size:0px; /* IMPORTANT */
+  height: 16px;
+  width: 180px;
+}
 
+.ui-progressbar-value {
+  background:#fab420;
+}

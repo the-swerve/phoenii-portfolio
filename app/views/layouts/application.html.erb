@@ -2,11 +2,14 @@
 <html>
 <head>
   <title>Phoenii | Business rises again.</title>
+  <%= stylesheet_link_tag "progressbar" %>
   <%= stylesheet_link_tag "style" %>
   <%= stylesheet_link_tag "style_inner" %>
+  <%= stylesheet_link_tag "tablestyle" %>
 	<link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700,700italic,400italic' rel='stylesheet' type='text/css' /> 
-  <%= javascript_include_tag "application" %>
   <%= javascript_include_tag "jquery" %>
+  <%= javascript_include_tag "jquery-ui" %>
+  <%= javascript_include_tag "progressbar" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -33,7 +36,7 @@
     <% elsif current_user && current_user.role == "Entrepreneur" %>
       <% if current_user.business %>
         <h3 class="node" id="leftN"><%= link_to "Stats", business_investments_path(current_user.business) %></h3>
-        <h3 class="node" id="middleN"><%= link_to "Page", business_path(current_user.business) %></h3>
+        <h3 class="node" id="middleN"><%= link_to "Page", business_page_path(current_user.business) %></h3>
       <% end %>
       <% if current_user.business %>
         <h3 class="node" id="rightN"><%= link_to "Card", user_business_path(current_user) %></h3>

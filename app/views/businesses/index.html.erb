@@ -3,7 +3,8 @@
     <h2><%= link_to business.name, business %></h2>
 
     <div id="photodiv">
-      <%= image_tag business.photo.url(:thumb) %>
+  <% if business.photo.exists? %> <%= image_tag business.photo.url(:thumb) %>
+  <% else %> <% end %>
     </div>
 
     <div id="data">
@@ -14,6 +15,7 @@
     <% else %>
       <p class="card_data" id="invest"><%= link_to 'Invest', new_business_investment_path(business) %></p>
     <% end %>
+    <script>placeStatusBar(<%= business.goal_investment / business.invested_amount  %>)</script><br />
     </div>
   </div>
 <% end %>
